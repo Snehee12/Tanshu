@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import emailjs from "emailjs-com";
-import "./AppointmentBooking.css";
+import emailjs from "@emailjs/browser";  // Correct import
+import "./AppointmentBooking.css";  
 
 export const AppointmentBooking = () => {
   const [name, setName] = useState("");
@@ -11,10 +11,16 @@ export const AppointmentBooking = () => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("");
 
+  // Initialize EmailJS (Best Practice)
+  useEffect(() => {
+    emailjs.init("eTO5gmqMPncxTr98F"); 
+  }, []);
+
   const handleBooking = (e) => {
     e.preventDefault();
 
     const templateParams = {
+      to_email: "sneheeg@gmail.com",
       user_name: name,
       user_purpose: purpose,
       user_email: email,
@@ -22,20 +28,24 @@ export const AppointmentBooking = () => {
       appointment_time: time,
     };
 
+    console.log("Sending Email with:", templateParams);
+
     emailjs
-      .send("service_xxxx", "template_xxxx", templateParams, "user_xxxx")
+      .send("service_k1w5xhf", "template_st6y1uo", templateParams)
       .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
         alert("Appointment booked successfully!");
       })
       .catch((error) => {
-        alert("Failed to book appointment.");
+        console.error("FAILED...", error);
+        alert(`Failed to book appointment. Error: ${error.text}`);
       });
   };
 
   return (
     <div className="container">
       <h1>Hi! I am Tanshu.</h1>
-      {/* <p>Book an appointment easily below.</p> */}
+      <p>Book an appointment easily below.</p>
       <form className="form" onSubmit={handleBooking}>
         <input
           type="text"
@@ -53,11 +63,7 @@ export const AppointmentBooking = () => {
           onChange={(e) => setPurpose(e.target.value)}
           required
         />
-        <Calendar
-          onChange={setDate}
-          value={date}
-          className="calendar"
-        />
+        <Calendar onChange={setDate} value={date} className="calendar" />
         <input
           type="time"
           className="input"
@@ -73,12 +79,8 @@ export const AppointmentBooking = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="button">
-          Book Appointment
-        </button>
+        <button type="submit" className="button">Book Appointment</button>
       </form>
     </div>
   );
 };
-
-
