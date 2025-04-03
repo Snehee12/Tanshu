@@ -44,45 +44,52 @@ export const AppointmentBooking = () => {
 
   return (
     <div className="container">
-      <h1>Hi! I am Tanshu.</h1>
+      <h1>Hi! I am Tanshu Gurung.</h1>
       <p>Make an appointment</p>
       <form className="form" onSubmit={handleBooking}>
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="input"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Purpose of Meet"
-          className="input"
-          value={purpose}
-          onChange={(e) => setPurpose(e.target.value)}
-          required
-        />
-        <Calendar onChange={setDate} value={date} className="calendar" />
-        <input
-          type="time"
-          className="input"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          required
-        />
-        {/* <DemoItem label="Controlled calendar">
-          <DateCalendar value={value} onChange={(newValue) => setValue(newValue)} />
-        </DemoItem> */}
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="input"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <button type="submit" className="button">Book Appointment</button>
+        <div className="leftbar">
+          <Calendar onChange={setDate} value={date} className="calendar" />
+        </div>
+        <div className="rightbar">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Purpose of Meet"
+            className="input"
+            value={purpose}
+            onChange={(e) => setPurpose(e.target.value)}
+            required
+          />
+          
+          <input
+            type="time"
+            className="input"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            required
+          />
+          {/* <DemoItem label="Controlled calendar">
+            <DateCalendar value={value} onChange={(newValue) => setValue(newValue)} />
+          </DemoItem> */}
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <button type="submit" className="button">Book Appointment</button>
+        </div>
+        
+        
       </form>
     </div>
   );

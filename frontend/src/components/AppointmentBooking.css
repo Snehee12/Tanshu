@@ -1,73 +1,150 @@
 /* AppointmentBooking.css */
 body {
-    background-color: #f8f6ff; /* Soft pastel background */
-    font-family: "Poppins", sans-serif;
-  }
+  background-color: #f8f6ff; /* Soft pastel background */
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  /* width: 100px; */
+}
+
+h1 {
+  font-size: 2rem;
+  color: #484751;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #808080;
+  margin-bottom: 20px;
+}
+
+.form {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #858587;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.rightbar{
+  flex: 1;
+  padding: 10px;
+  margin-top: -5px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 22px;
+  border: 2px solid #b2b2b2; /* Pastel lavender */
+  border-radius: 8px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #39383e; /* Soft pastel pink */
+}
+
+/* Calendar Customizations */
+.react-calendar {
+  width: 300px;
+  border: 2px solid #b2b2b2;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Remove dotted lines under day names */
+.react-calendar__month-view__weekdays {
+  text-decoration: none !important;
+  color: #0c053c !important; /* Navy Blue */
+  font-weight: bold;
+}
+
+/* Set all day numbers to navy blue */
+.react-calendar__tile {
+  color: #0c053c !important; /* Navy Blue */
+}
+
+/* Highlight the current date in light grey */
+.react-calendar__tile--now {
+  background-color: #d3d3d3 !important;
+  color: #000 !important;
+  border-radius: 8px;
+}
+
+/* Highlight selected date in navy blue */
+.react-calendar__tile--active {
+  background-color: #0c053c !important;
+  color: white !important;
+  border-radius: 8px;
+}
+
+/* Remove red color from weekends */
+.react-calendar__month-view__days__weekend {
+  color: #0c053c !important; /* Navy Blue instead of Red */
+}
+
+.react-calendar__navigation {
+  background-color: #f0f0f0 !important; /* Very Light Grey */
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Ensure the month/year text is visible */
+.react-calendar__navigation button {
+  color: #0c053c !important; /* Navy Blue */
+  font-weight: bold;
+}
   
-  .container {
-    display: flex;
+.button {
+  margin-top: 10px;
+  background-color: #0c053c; /* Pastel pink */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: #464648; /* Slightly darker pastel pink */
+}
+
+@media (max-width: 768px) {
+  .form {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     padding: 20px;
   }
-  
-  h1 {
-    font-size: 2rem;
-    color: #0c053c;
-    margin-bottom: 10px;
+
+  .input {
+    max-width: 100%;
   }
-  
-  p {
-    font-size: 1.2rem;
-    color: #808080;
+
+  .react-calendar {
+    max-width: 100%;
     margin-bottom: 20px;
   }
-  
-  .form {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-  }
-  
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #0c053c; /* Pastel lavender */
-    border-radius: 8px;
-    outline: none;
-  }
-  
-  .input:focus {
-    border-color: #0c053c; /* Soft pastel pink */
-  }
-  
-  .calendar {
-    width: 100%;
-    margin-bottom: 10px;
-    border: 2px solid #0c053c; /* Pastel blue */
-    border-radius: 8px;
-    padding: 10px;
-  }
-  
+
   .button {
-    background-color: #0c053c; /* Pastel pink */
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
+    max-width: 100%;
   }
-  
-  .button:hover {
-    background-color: #0c053c; /* Slightly darker pastel pink */
-  }
-  
+}
