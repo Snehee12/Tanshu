@@ -45,7 +45,7 @@ export const AppointmentBooking = () => {
   return (
     <div className="container">
       <h1>Hi! I am Tanshu.</h1>
-      <p>Book an appointment easily below.</p>
+      <p>Make an appointment</p>
       <form className="form" onSubmit={handleBooking}>
         <input
           type="text"
@@ -71,6 +71,9 @@ export const AppointmentBooking = () => {
           onChange={(e) => setTime(e.target.value)}
           required
         />
+        {/* <DemoItem label="Controlled calendar">
+          <DateCalendar value={value} onChange={(newValue) => setValue(newValue)} />
+        </DemoItem> */}
         <input
           type="email"
           placeholder="Your Email"
